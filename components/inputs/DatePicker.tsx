@@ -1,3 +1,4 @@
+import { cn } from "@/utils/utils";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -23,10 +24,10 @@ const DatePickerInput: React.FC<DatePickerInputProps> = ({
   return (
     <div className="relative flex flex-col w-full gap-y-2.5">
       <label
-        className={`
-            text-xs font-medium leading-4 text-[#7E88C3] dark:text-[#DFE3FA]
-            ${errors[id] && "text-[#EC5757] dark:text-[#EC5757]"}
-        `}
+        className={cn(
+          "text-xs font-medium leading-4 text-[#7E88C3] dark:text-[#DFE3FA]",
+          errors[id] && "text-[#EC5757] dark:text-[#EC5757]"
+        )}
       >
         {label}
       </label>
@@ -39,11 +40,11 @@ const DatePickerInput: React.FC<DatePickerInputProps> = ({
         })}
         selected={value}
         onChange={(value) => onChange(value as Date)}
-        className={`text-xs w-full py-4 px-5 font-bold bg-white dark:bg-[#1E2139] text-[#0C0E16] dark:text-white border border-[#DFE3FA] dark:border-[#252945] rounded outline-none transition disabled:cursor-not-allowed
-                    ${
-                      errors[id] &&
-                      "border-[#EC5757] focus:border-[#EC5757] dark:border-[#EC5757] dark:focus:border-[#EC5757]"
-                    }`}
+        className={cn(
+          "text-xs w-full py-4 px-5 font-bold bg-white dark:bg-[#1E2139] text-[#0C0E16] dark:text-white border border-[#DFE3FA] dark:border-[#252945] rounded outline-none transition disabled:cursor-not-allowed",
+          errors[id] &&
+            "border-[#EC5757] focus:border-[#EC5757] dark:border-[#EC5757] dark:focus:border-[#EC5757]"
+        )}
         dateFormat="dd MMM yyyy"
       />
       {errors[id] && (

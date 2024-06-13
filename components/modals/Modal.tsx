@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Button from "../shared/Button";
+import { cn } from "@/utils/utils";
 
 interface ModalProps {
   isOpen?: boolean;
@@ -71,9 +72,12 @@ const Modal: React.FC<ModalProps> = ({
         >
           {/* CONTENT */}
           <form
-            className={`translate duration-300 flex flex-col w-full h-full p-8 rounded-lg outline-none sm:p-12 bg-modal shadow-modalShadow lg:h-auto md:h-auto focus:outline-none
-                        ${showModal ? "translate-y-0" : "translate-y-full"}
-                        ${showModal ? "opacity-100" : "opacity-0"}`}
+            className={cn(
+              "translate duration-300 flex flex-col w-full h-full p-8 rounded-lg outline-none sm:p-12 bg-modal shadow-modalShadow lg:h-auto md:h-auto focus:outline-none",
+              showModal
+                ? "translate-y-0 opacity-100"
+                : "translate-y-full opacity-0"
+            )}
           >
             {/* HEADER */}
             <div className="text-xl font-bold sm:text-2xl text-primary">
@@ -87,15 +91,14 @@ const Modal: React.FC<ModalProps> = ({
                 {secondaryAction && secondaryActionLabel && (
                   <Button
                     disabled={disabled}
-                    grey
+                    color="grey"
                     label={secondaryActionLabel}
                     onClick={secondaryAction}
                   />
                 )}
                 <Button
                   disabled={disabled}
-                  purple={!actionColor}
-                  red={actionColor === "red"}
+                  color={actionColor === "red" ? "red" : "purple"}
                   label={actionLabel}
                   onClick={handleSubmit}
                 />

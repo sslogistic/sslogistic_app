@@ -45,17 +45,22 @@ const InvoiceActionButtons: React.FC<InvoiceActionButtonsProps> = ({
 
   return (
     <>
-      <Button onClick={handleEdit} disabled={isLoading} grey label="Edit" />
+      <Button
+        onClick={handleEdit}
+        disabled={isLoading}
+        color="grey"
+        label="Edit"
+      />
       <Button
         onClick={handleDeleteModal}
         disabled={isLoading}
-        red
+        color="red"
         label="Delete"
       />
       <Button
         onClick={handleStatusUpdate}
         disabled={isLoading || status === "paid"}
-        purple
+        color="purple"
         label="Mark as Paid"
       />
     </>

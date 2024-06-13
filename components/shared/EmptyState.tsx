@@ -32,7 +32,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         </p>
         {showReset && (
           <Button
-            purple
+            color="purple"
             label="Go to Home Page"
             onClick={() => router.push("/")}
           />

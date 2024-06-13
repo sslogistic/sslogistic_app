@@ -32,6 +32,7 @@ import emailValidationPattern from "@/helpers/emailValidationPattern";
 import getShortId from "@/helpers/getShortId";
 
 import { TERM_VALUES } from "@/enums";
+import { cn } from "@/utils/utils";
 
 const InvoiceModal = () => {
   const router = useRouter();
@@ -175,9 +176,12 @@ const InvoiceModal = () => {
       >
         <form
           onClick={(e) => e.stopPropagation()}
-          className={`translate duration-300 flex flex-col justify-between h-full overflow-y-hidden absolute left-0 top-0 w-full sm:w-[620px] md:w-[720px] p-6 pr-2 pb-0 pt-[98px] sm:p-14 sm:pr-8 sm:pb-0 sm:pt-[128px] md:pl-[140px] md:pt-14 z-50 bg-[#FFFFFF] dark:bg-[#141625] sm:rounded-tr-[20px] sm:rounded-br-[20px]
-                      ${showModal ? "translate-x-0" : "-translate-x-full"}
-                      ${showModal ? "opacity-100" : "opacity-0"}`}
+          className={cn(
+            "translate duration-300 flex flex-col justify-between h-full overflow-y-hidden absolute left-0 top-0 w-full sm:w-[620px] md:w-[720px] p-6 pr-2 pb-0 pt-[98px] sm:p-14 sm:pr-8 sm:pb-0 sm:pt-[128px] md:pl-[140px] md:pt-14 z-50 bg-[#FFFFFF] dark:bg-[#141625] sm:rounded-tr-[20px] sm:rounded-br-[20px]",
+            showModal
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-full opacity-0"
+          )}
         >
           <h2 className="pb-6 text-2xl font-semibold sm:pb-12 text-primary">
             {isEditing
@@ -329,7 +333,7 @@ const InvoiceModal = () => {
                 <Button
                   label="+ Add New Item"
                   stretch
-                  grey
+                  color="grey"
                   onClick={() => {
                     append({});
                   }}
@@ -345,21 +349,20 @@ const InvoiceModal = () => {
             <Button
               disabled={isLoading}
               onClick={handleClose}
-              base
               label={isEditing ? "Cancel" : "Discard"}
             />
             <div className="flex gap-2">
               {!isEditing && (
                 <Button
                   disabled={isLoading}
-                  darkGrey
+                  color="darkGrey"
                   label="Save as Draft"
                   onClick={handleSubmit(onDraftSubmit)}
                 />
               )}
               <Button
                 disabled={isLoading}
-                purple
+                color="purple"
                 label={isLoading ? "Save changes" : "Save & Send"}
                 onClick={
                   isEditing

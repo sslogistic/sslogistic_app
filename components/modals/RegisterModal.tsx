@@ -81,7 +81,7 @@ const RegisterModal = () => {
       <div className="w-full h-px bg-[#DFE3FA] dark:bg-[#252945]"></div>
       <Button
         disabled={isLoading}
-        grey
+        color="grey"
         ariaLabel="google sign up"
         label="Continue with Google"
         icon={FcGoogle}
@@ -89,7 +89,7 @@ const RegisterModal = () => {
       />
       <Button
         disabled={isLoading}
-        grey
+        color="grey"
         ariaLabel="github sign up"
         label="Continue with Github"
         icon={AiFillGithub}
