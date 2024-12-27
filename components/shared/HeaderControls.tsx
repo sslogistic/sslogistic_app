@@ -33,7 +33,7 @@ const HeaderControls: React.FC<HeaderControlsProps> = ({
     <div className="z-10 flex justify-between">
       <div className="flex flex-col gap-1 sm:gap-2">
         <h1 className="text-[20px] sm:text-[32px] font-bold text-primary">
-          Invoices
+          S S Gujarat Logistics
         </h1>
         <p className="text-xs font-medium text-secondary">
           {numOfInvoices === 0
